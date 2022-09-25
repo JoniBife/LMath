@@ -2,7 +2,7 @@
 #define MATHAUX_H
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include "Vec3.hpp"
 
 namespace LMath {

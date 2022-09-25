@@ -1,6 +1,6 @@
 #define _USE_MATH_DEFINES
 
-#include "LMath\MathAux.hpp"
+#include "LMath/MathAux.hpp"
 
 using namespace LMath;
 

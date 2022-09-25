@@ -1,5 +1,5 @@
-#include "LMath\Mat2.hpp"
-#include "LMath\MathAux.hpp"
+#include "LMath/Mat2.hpp"
+#include "LMath/MathAux.hpp"
 
 using namespace LMath;
 
