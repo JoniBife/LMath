@@ -2,8 +2,8 @@
 #define VEC2_H
 
 #include <ostream>
-#include "LMath\Vec3.hpp"
-#include "LMath\Vec4.hpp"
+#include "LMath/Vec3.hpp"
+#include "LMath/Vec4.hpp"
 
 namespace LMath {
 

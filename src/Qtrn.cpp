@@ -1,6 +1,6 @@
-#include "LMath\Qtrn.hpp"
+#include "LMath/Qtrn.hpp"
 #include <math.h>
-#include "LMath\MathAux.hpp"
+#include "LMath/MathAux.hpp"
 #include <assert.h>
 
 using namespace LMath;

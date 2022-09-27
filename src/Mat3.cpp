@@ -1,6 +1,5 @@
-#include <math.h>
-#include "LMath\Mat3.hpp"
-#include "LMath\MathAux.hpp"
+#include "LMath/Mat3.hpp"
+#include "LMath/MathAux.hpp"
 
 using namespace LMath;
 

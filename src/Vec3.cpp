@@ -1,7 +1,6 @@
-#include <Math.h>
-#include <assert.h>
-#include "LMath\Vec3.hpp"
-#include "LMath\MathAux.hpp"
+#include <cmath>
+#include "LMath/Vec3.hpp"
+#include "LMath/MathAux.hpp"
 
 using namespace LMath;
 

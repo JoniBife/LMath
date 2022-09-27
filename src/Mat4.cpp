@@ -1,6 +1,6 @@
-#include <math.h>
-#include "LMath\Mat4.hpp"
-#include "LMath\MathAux.hpp"
+#include <cmath>
+#include "LMath/Mat4.hpp"
+#include "LMath/MathAux.hpp"
 
 using namespace LMath;
 
