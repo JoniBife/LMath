@@ -36,6 +36,7 @@ namespace LMath {
 		friend Vec3 operator+(float scalar, const Vec3& vec3);
 		Vec3 operator-(float scalar) const;
 		friend Vec3 operator-(float scalar, const Vec3& vec3);
+        Vec3 operator-() const;
 
 		Vec3& operator+=(float s);
 		Vec3& operator-=(float s);

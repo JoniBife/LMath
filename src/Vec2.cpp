@@ -10,11 +10,11 @@ Vec2::Vec2(float xy) : Vec2(xy,xy) { }
 Vec2::Vec2(float x, float y) : x(x), y(y) { }
 
 Vec2 Vec2::operator+(const Vec2& other) const {
-	return Vec2(this->x + other.x, this->y + other.y);
+	return {this->x + other.x, this->y + other.y};
 }
 
 Vec2 Vec2::operator-(const Vec2& other) const {
-	return Vec2(this->x - other.x, this->y - other.y);
+	return {this->x - other.x, this->y - other.y};
 }
 
 Vec2& Vec2::operator=(const Vec2& other) {
@@ -37,19 +37,19 @@ Vec2& Vec2::operator-=(const Vec2& other) {
 
 
 Vec2 Vec2::operator*(float scalar) const {
-	return Vec2(this->x * scalar, this->y * scalar);
+	return {this->x * scalar, this->y * scalar};
 }
 
 Vec2 Vec2::operator/(float scalar) const {
-	return Vec2(this->x / scalar, this->y / scalar);
+	return {this->x / scalar, this->y / scalar};
 }
 
 Vec2 Vec2::operator+(float scalar) const {
-	return Vec2(this->x + scalar, this->y + scalar);
+	return {this->x + scalar, this->y + scalar};
 }
 
 Vec2 Vec2::operator-(float scalar) const {
-	return Vec2(this->x - scalar, this->y - scalar);
+	return {this->x - scalar, this->y - scalar};
 }
 
 Vec2& Vec2::operator+=(float s) {
@@ -85,7 +85,7 @@ bool Vec2::operator!=(const Vec2& other) const {
 }
 
 float Vec2::magnitude() const {
-	return sqrt(this->x * this->x + this->y * this->y);
+	return std::sqrt(this->x * this->x + this->y * this->y);
 }
 
 float Vec2::sqrMagnitude() const {
@@ -107,11 +107,11 @@ Vec2 Vec2::normalize() const {
 }
 
 Vec3 Vec2::toVec3() const {
-	return Vec3(this->x, this->y, 0);
+	return {this->x, this->y, 0};
 }
 
 Vec4 Vec2::toVec4() const {
-	return Vec4(this->x, this->y, 0, 0);
+	return {this->x, this->y, 0, 0};
 }
 
 float Vec2::toOrientation() const {
@@ -133,13 +133,17 @@ std::ostream& operator<<(std::ostream& os, const Vec2& vec2) {
 }
 
 Vec2 operator*(float scalar, const Vec2& vec2) {
-	return Vec2(scalar * vec2.x, scalar * vec2.y);
+	return {scalar * vec2.x, scalar * vec2.y};
 }
 
 Vec2 operator+(float scalar, const Vec2& vec2) {
-	return Vec2(scalar + vec2.x, scalar + vec2.y);
+	return {scalar + vec2.x, scalar + vec2.y};
 }
 
 Vec2 operator-(float scalar, const Vec2& vec2) {
-	return Vec2(scalar - vec2.x, scalar - vec2.y);
+	return {scalar - vec2.x, scalar - vec2.y};
+}
+
+Vec2 Vec2::operator-() const {
+    return {-x,-y };
 }

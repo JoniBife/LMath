@@ -15,11 +15,11 @@ Vec4 LMath::Vec4::Y = Vec4(0, 1, 0, 1);
 Vec4 LMath::Vec4::X = Vec4(1, 0, 0, 1);
 
 Vec4 LMath::Vec4::operator+(const Vec4& other) const {
-	return Vec4(this->x + other.x, this->y + other.y, this->z + other.z, this->w + other.w);
+	return {this->x + other.x, this->y + other.y, this->z + other.z, this->w + other.w};
 }
 
 Vec4 LMath::Vec4::operator-(const Vec4& other) const {
-	return Vec4(this->x - other.x, this->y - other.y, this->z - other.z, this->w - other.w);
+	return {this->x - other.x, this->y - other.y, this->z - other.z, this->w - other.w};
 }
 
 Vec4& LMath::Vec4::operator=(const Vec4& other) {
@@ -49,19 +49,19 @@ Vec4& LMath::Vec4::operator-=(const Vec4& other) {
 
 
 Vec4 LMath::Vec4::operator*(float scalar) const {
-	return Vec4(this->x * scalar, this->y * scalar, this->z * scalar, this->w * scalar);
+	return {this->x * scalar, this->y * scalar, this->z * scalar, this->w * scalar};
 }
 
 Vec4 LMath::Vec4::operator/(float scalar) const {
-	return Vec4(this->x / scalar, this->y / scalar, this->z / scalar, this->w / scalar);
+	return {this->x / scalar, this->y / scalar, this->z / scalar, this->w / scalar};
 }
 
 Vec4 LMath::Vec4::operator+(float scalar) const {
-	return Vec4(this->x + scalar, this->y + scalar, this->z + scalar, this->w + scalar);
+	return {this->x + scalar, this->y + scalar, this->z + scalar, this->w + scalar};
 }
 
 Vec4 LMath::Vec4::operator-(float scalar) const {
-	return Vec4(this->x - scalar, this->y - scalar, this->z - scalar, this->w - scalar);
+	return {this->x - scalar, this->y - scalar, this->z - scalar, this->w - scalar};
 }
 
 Vec4& LMath::Vec4::operator+=(float s) {
@@ -109,7 +109,7 @@ bool LMath::Vec4::operator!=(const Vec4& other) const {
 
 
 float LMath::Vec4::magnitude() const {
-	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w*this->w);
+	return std::sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w*this->w);
 }
 
 float LMath::Vec4::sqrMagnitude() const {
@@ -141,13 +141,17 @@ std::ostream& LMath::operator<<(std::ostream& os, const Vec4& vec4) {
 }
 
 Vec4 LMath::operator*(float scalar, const Vec4& vec4) {
-	return Vec4(scalar * vec4.x, scalar * vec4.y, scalar * vec4.z, scalar * vec4.w);
+	return {scalar * vec4.x, scalar * vec4.y, scalar * vec4.z, scalar * vec4.w};
 }
 
 Vec4 LMath::operator+(float scalar, const Vec4& vec4) {
-	return Vec4(scalar + vec4.x, scalar + vec4.y, scalar + vec4.z, scalar + vec4.w);
+	return {scalar + vec4.x, scalar + vec4.y, scalar + vec4.z, scalar + vec4.w};
 }
 
 Vec4 LMath::operator-(float scalar, const Vec4& vec4) {
-	return Vec4(scalar - vec4.x, scalar - vec4.y, scalar - vec4.z, scalar - vec4.w);
+	return {scalar - vec4.x, scalar - vec4.y, scalar - vec4.z, scalar - vec4.w};
+}
+
+Vec4 Vec4::operator-() const {
+    return { -x, -y, -z, -w};
 }

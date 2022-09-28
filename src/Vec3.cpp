@@ -14,15 +14,15 @@ Vec3 LMath::Vec3::Y = Vec3(0, 1, 0);
 Vec3 LMath::Vec3::X = Vec3(1, 0, 0);
 
 Vec3 LMath::Vec3::random() {
-	return Vec3(randomFloat(), randomFloat(), randomFloat());
+	return {randomFloat(), randomFloat(), randomFloat()};
 }
 
 Vec3 LMath::Vec3::operator+(const Vec3& other) const {
-	return Vec3(this->x + other.x, this->y + other.y, this->z + other.z);
+	return {this->x + other.x, this->y + other.y, this->z + other.z};
 }
 
 Vec3 LMath::Vec3::operator-(const Vec3& other) const {
-	return Vec3(this->x - other.x, this->y - other.y, this->z - other.z);
+	return {this->x - other.x, this->y - other.y, this->z - other.z};
 }
 
 Vec3& LMath::Vec3::operator=(const Vec3& other) {
@@ -63,19 +63,19 @@ Vec3& LMath::Vec3::operator/=(const Vec3& other)
 }
 
 Vec3 LMath::Vec3::operator*(float scalar) const {
-	return Vec3(this->x * scalar, this->y * scalar, this->z * scalar);
+	return {this->x * scalar, this->y * scalar, this->z * scalar};
 }
 
 Vec3 LMath::Vec3::operator/(float scalar) const {
-	return Vec3(this->x / scalar, this->y / scalar, this->z / scalar);
+	return {this->x / scalar, this->y / scalar, this->z / scalar};
 }
 
 Vec3 LMath::Vec3::operator+(float scalar) const {
-	return Vec3(this->x + scalar, this->y + scalar, this->z + scalar);
+	return {this->x + scalar, this->y + scalar, this->z + scalar};
 }
 
 Vec3 LMath::Vec3::operator-(float scalar) const {
-	return Vec3(this->x - scalar, this->y - scalar, this->z - scalar);
+	return {this->x - scalar, this->y - scalar, this->z - scalar};
 }
 
 Vec3& LMath::Vec3::operator+=(float s) {
@@ -125,7 +125,7 @@ float LMath::Vec3::angle(const Vec3& a, const Vec3& b) {
 
 
 float LMath::Vec3::magnitude() const {
-	return sqrt(this->x * this->x + this->y * this->y + this->z*this->z);
+	return std::sqrt(this->x * this->x + this->y * this->y + this->z*this->z);
 }
 
 float LMath::Vec3::sqrMagnitude() const {
@@ -153,7 +153,7 @@ Vec3 LMath::Vec3::normalize() const {
 }
 
 Vec4 LMath::Vec3::toVec4() const {
-	return Vec4(this->x, this->y, this->z, 0);
+	return {this->x, this->y, this->z, 0};
 }
 
 Vec3 LMath::Vec3::lerp(Vec3 initial, Vec3 final, float f) {
@@ -165,7 +165,7 @@ float LMath::dot(const Vec3& a, const Vec3& b) {
 }
 
 Vec3 LMath::cross(const Vec3& a, const Vec3& b) {
-	return Vec3((a.y * b.z - a.z * b.y),(a.z * b.x - a.x * b.z),(a.x * b.y - a.y * b.x));
+	return {(a.y * b.z - a.z * b.y),(a.z * b.x - a.x * b.z),(a.x * b.y - a.y * b.x)};
 }
 
 // K has to be normalized
@@ -183,13 +183,17 @@ std::ostream& LMath::operator<<(std::ostream& os, const Vec3& vec3) {
 }
 
 Vec3 LMath::operator*(const float scalar, const Vec3& vec3) {
-	return Vec3(scalar * vec3.x, scalar * vec3.y, scalar * vec3.z);
+	return {scalar * vec3.x, scalar * vec3.y, scalar * vec3.z};
 }
 
 Vec3 LMath::operator+(float scalar, const Vec3& vec3) {
-	return Vec3(scalar + vec3.x, scalar + vec3.y, scalar + vec3.z);
+	return {scalar + vec3.x, scalar + vec3.y, scalar + vec3.z};
 }
 
 Vec3 LMath::operator-(float scalar, const Vec3& vec3) {
-	return Vec3(scalar - vec3.x, scalar - vec3.y, scalar - vec3.z);
+	return {scalar - vec3.x, scalar - vec3.y, scalar - vec3.z};
+}
+
+Vec3 Vec3::operator-() const {
+    return {-x, -y, -z};
 }
