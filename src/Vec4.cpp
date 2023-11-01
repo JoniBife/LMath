@@ -9,7 +9,8 @@ LMath::Vec4::Vec4() : Vec4(0) {}
 LMath::Vec4::Vec4(float xyz) : Vec4(xyz,xyz,xyz,xyz) {}
 LMath::Vec4::Vec4(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) { }
 
-Vec4 LMath::Vec4::ZERO = Vec4(0, 0, 0, 0);
+Vec4 LMath::Vec4::ONE = Vec4(1.f);
+Vec4 LMath::Vec4::ZERO = Vec4(0.f);
 Vec4 LMath::Vec4::Z = Vec4(0, 0, 1, 1);
 Vec4 LMath::Vec4::Y = Vec4(0, 1, 0, 1);
 Vec4 LMath::Vec4::X = Vec4(1, 0, 0, 1);

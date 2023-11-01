@@ -14,6 +14,7 @@ namespace LMath {
 		Vec3(float xyz);
 		Vec3(float x, float y, float z);
 
+		static Vec3 ONE;
 		static Vec3 ZERO;
 		static Vec3 Z;
 		static Vec3 Y;

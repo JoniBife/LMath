@@ -25,6 +25,8 @@ LMath::Qtrn::Qtrn(const float thetaRad,const Vec3& axis) {
 	clean();
 }
 
+Qtrn LMath::Qtrn::IDENTITY = Qtrn(0.f, 0.f, 0.f, 1.f);
+
 void LMath::Qtrn::toAngleAxis(float& thetaRad, Vec3& axis) const {
 	
 	Qtrn normalized = this->normalize();

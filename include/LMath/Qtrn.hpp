@@ -17,6 +17,8 @@ namespace LMath {
 		Qtrn(const float thetaRad, const Vec3& axis);
 		Qtrn(const float t, const float x, const float y, const float z);
 
+		static Qtrn IDENTITY;
+
 		void toAngleAxis(float& thetaRad, Vec3& axis) const;
 
 		float quadrance() const;
