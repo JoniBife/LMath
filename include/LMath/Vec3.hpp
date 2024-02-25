@@ -16,9 +16,14 @@ namespace LMath {
 
 		static Vec3 ONE;
 		static Vec3 ZERO;
+
 		static Vec3 Z;
 		static Vec3 Y;
 		static Vec3 X;
+
+		static Vec3 FORWARD;
+		static Vec3 RIGHT;
+		static Vec3 UP;
 
 		static Vec3 random();
 

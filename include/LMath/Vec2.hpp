@@ -42,6 +42,7 @@ namespace LMath {
 		float magnitude() const;
 		float sqrMagnitude() const;
 		Vec2 normalize() const;
+		Vec2 clamp(const float min, const float max) const;
 
 		void toOpenGLFormat(float array[2]) const;
 

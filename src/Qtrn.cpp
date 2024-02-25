@@ -5,7 +5,7 @@
 
 using namespace LMath;
 
-LMath::Qtrn::Qtrn() : Qtrn(0.0f,0.0f,0.0f,0.0f) {}
+LMath::Qtrn::Qtrn() : Qtrn(1.0f,0.0f,0.0f,0.0f) {}
 
 LMath::Qtrn::Qtrn(const float t,const float x,const float y,const float z) : t(t), x(x), y(y), z(z) { }
 
@@ -25,7 +25,7 @@ LMath::Qtrn::Qtrn(const float thetaRad,const Vec3& axis) {
 	clean();
 }
 
-Qtrn LMath::Qtrn::IDENTITY = Qtrn(0.f, 0.f, 0.f, 1.f);
+Qtrn LMath::Qtrn::IDENTITY = Qtrn(1.f, 0.f, 0.f, 0.f);
 
 void LMath::Qtrn::toAngleAxis(float& thetaRad, Vec3& axis) const {
 	

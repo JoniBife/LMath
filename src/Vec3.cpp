@@ -14,6 +14,9 @@ Vec3 LMath::Vec3::ZERO = Vec3(0.f);
 Vec3 LMath::Vec3::Z = Vec3(0.f, 0.f, 1.f);
 Vec3 LMath::Vec3::Y = Vec3(0.f, 1.f, 0.f);
 Vec3 LMath::Vec3::X = Vec3(1.f, 0.f, 0.f);
+Vec3 LMath::Vec3::FORWARD = Vec3(0.f, 0.f, 1.f);
+Vec3 LMath::Vec3::RIGHT = Vec3(1.f, 0.f, 0.f);
+Vec3 LMath::Vec3::UP = Vec3(0.f, 1.f, 0.f);
 
 Vec3 LMath::Vec3::random() {
 	return {randomFloat(), randomFloat(), randomFloat()};

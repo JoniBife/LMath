@@ -1,5 +1,7 @@
 #include <cmath>
 #include <cassert>
+#include <algorithm>
+
 #include "LMath/Vec2.hpp"
 #include "LMath/MathAux.hpp"
 
@@ -104,6 +106,10 @@ Vec2 Vec2::normalize() const {
 	assert(magnitude > 0);
 
 	return (*this) / magnitude;
+}
+
+Vec2 Vec2::clamp(const float min, const float max) const {
+	return { std::clamp(x, min, max), std::clamp(y, min, max) };
 }
 
 Vec3 Vec2::toVec3() const {
