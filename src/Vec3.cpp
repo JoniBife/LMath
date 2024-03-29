@@ -161,6 +161,25 @@ Vec4 LMath::Vec3::toVec4() const {
 	return {this->x, this->y, this->z, 0};
 }
 
+Vec3 Vec3::clampMagnitude(const float newMagnitude) const
+{
+	if (sqrMagnitude() > newMagnitude * newMagnitude) {
+		return normalize() * newMagnitude;
+	}
+	return *this;
+}
+
+float LMath::Vec3::angleRad(const Vec3& a, const Vec3& b)
+{
+	// Assumes a and b are Normalized
+
+	const float cosine = dot(a, b);
+	const float sqrMagnitudeA = a.sqrMagnitude();
+	const float sqrMagnitudeB = b.sqrMagnitude();
+
+	return acosf(cosine/sqrtf(sqrMagnitudeA * sqrMagnitudeB));
+}
+
 Vec3 LMath::Vec3::lerp(Vec3 initial, Vec3 final, float f) {
 	return initial + f * (final - initial);
 }

@@ -29,6 +29,8 @@ namespace LMath {
 
     float randomFloat(float min, float max);
 
+    float randomBinomial();
+
     float degreesToRadians(float angle);
 
     float radiansToDegrees(float angleRad);

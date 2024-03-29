@@ -23,6 +23,7 @@ namespace LMath {
 
 		float quadrance() const;
 		float norm() const;
+		float angle() const;
 
 		Qtrn normalize() const;
 		Qtrn conjugate() const;

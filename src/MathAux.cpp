@@ -25,6 +25,11 @@ float LMath::randomFloat(float min, float max) {
     return static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min))) + min;
 }
 
+float LMath::randomBinomial()
+{
+    return randomFloat(0.f, 1.f) - randomFloat(0.f, 1.f);
+}
+
 float LMath::degreesToRadians(float angle) {
     return (angle * float(M_PI)) / 180.0f;
 }

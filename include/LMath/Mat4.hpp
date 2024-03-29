@@ -69,6 +69,10 @@ namespace LMath {
 		Mat3 toMat3() const; //removes last line and column
 		bool isOrthogonal() const;
 
+		Vec3 getRightAxis() const;
+		Vec3 getUpAxis() const;
+		Vec3 getForwardAxis() const;
+
 		/* Decomposes a transformation matrix in each of its components */
 		void decompose(Vec3& scale, Vec3& rotation, Vec3& position) const;
 

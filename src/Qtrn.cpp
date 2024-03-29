@@ -62,6 +62,12 @@ float LMath::Qtrn::norm() const {
 	return sqrtf(quadrance());
 }
 
+float Qtrn::angle() const
+{
+	const Qtrn normalized = this->normalize();
+	return 2.f * acosf(normalized.t);
+}
+
 Qtrn LMath::Qtrn::normalize() const {
 
 	float n = norm();

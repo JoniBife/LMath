@@ -15,6 +15,11 @@ namespace LMath {
 		Vec2(float xy);
 		Vec2(float x, float y);
 
+		static Vec2 Y;
+		static Vec2 X;
+
+		static Vec2 ONE;
+
 		Vec2 operator+(const Vec2& other) const;
 		Vec2 operator-(const Vec2& other) const;
 		Vec2& operator=(const Vec2& other);

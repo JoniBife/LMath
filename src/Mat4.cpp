@@ -532,6 +532,21 @@ bool LMath::Mat4::isOrthogonal() const
 	return *this * this->transpose() == Mat4::IDENTITY;
 }
 
+Vec3 LMath::Mat4::getRightAxis() const
+{
+	return Vec3(m[0][0], m[1][0], m[2][0]);
+}
+
+Vec3 LMath::Mat4::getUpAxis() const
+{
+	return Vec3(m[0][1], m[1][1], m[2][1]);
+}
+
+Vec3 LMath::Mat4::getForwardAxis() const
+{
+	return Vec3(m[0][2], m[1][2], m[2][2]);
+}
+
 void LMath::Mat4::decompose(Vec3& scale, Vec3& rotation, Vec3& position) const
 {
 

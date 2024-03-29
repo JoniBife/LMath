@@ -63,6 +63,9 @@ namespace LMath {
 
 		Vec3 normalize() const;
 		Vec4 toVec4() const;
+		Vec3 clampMagnitude(const float newMagnitude) const;
+
+		static float angleRad(const Vec3& a, const Vec3& b);
 	};
 
 	float dot(const Vec3& a, const Vec3& b);
