@@ -11,9 +11,9 @@ Vec2::Vec2() : Vec2(0.f) { }
 Vec2::Vec2(float xy) : Vec2(xy,xy) { }
 Vec2::Vec2(float x, float y) : x(x), y(y) { }
 
-Vec2 LMath::Vec2::Y = Vec2(0.f, 1.f);
-Vec2 LMath::Vec2::X = Vec2(1.f, 0.f);
-Vec2 LMath::Vec2::ONE = Vec2(1.f, 1.f);
+Vec2 Vec2::Y = Vec2(0.f, 1.f);
+Vec2 Vec2::X = Vec2(1.f, 0.f);
+Vec2 Vec2::ONE = Vec2(1.f, 1.f);
 
 Vec2 Vec2::operator+(const Vec2& other) const {
 	return {this->x + other.x, this->y + other.y};

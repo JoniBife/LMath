@@ -7,7 +7,7 @@
 
 namespace LMath {
 
-#define PI 3.141592741f
+#define PI 3.14159265358979323846f
 
 #define SQR(x) ((x) * (x))
 
