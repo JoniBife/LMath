@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.16 FATAL_ERROR)
 
 project (LMath VERSION 1.0.0 DESCRIPTION "A basic math library for computer graphics and game development.")
 
