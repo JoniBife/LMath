@@ -1,4 +1,7 @@
 #include "LMath/Mat3.hpp"
+
+#include "LMath/Qtrn.hpp"
+
 #include "LMath/MathAux.hpp"
 
 using namespace LMath;
@@ -28,6 +31,18 @@ LMath::Mat3::Mat3(const Mat3& other) {
 			m[l][c] = other.m[l][c];
 		}
 	}
+}
+
+Mat3::Mat3(const Vec3 &forward, const Vec3 &right, const Vec3 &up) {
+	m[0][0] = right.x;
+	m[0][1] = up.x;
+	m[0][2] = forward.x;
+	m[1][0] = right.y;
+	m[1][1] = up.y;
+	m[1][2] = forward.y;
+	m[2][0] = right.z;
+	m[2][1] = up.z;
+	m[2][2] = forward.z;
 }
 
 float LMath::Mat3::determinant() const {
@@ -276,6 +291,33 @@ Mat3 LMath::Mat3::transpose() const {
 		}
 	}
 	return trans;
+}
+
+Qtrn Mat3::toQuaternion() const {
+
+	// Matrix is special orthogonal
+	if (determinant() == 1.f) {
+		const float t = sqrtf(1 + m[0][0] + m[1][1] + m[2][2]) / 2.f;
+		const float t4 = t * 4.f;
+		const float x = (m[2][1] - m[1][2]) / t4;
+		const float y = (m[0][2] - m[2][0]) / t4;
+		const float z = (m[1][0] - m[0][1]) / t4;
+		return { t, x, y, z };
+
+	}
+	return Qtrn::IDENTITY;
+}
+
+Vec3 Mat3::getRightAxis() const {
+	return Vec3(m[0][0], m[1][0], m[2][0]);
+}
+
+Vec3 Mat3::getUpAxis() const {
+	return Vec3(m[0][1], m[1][1], m[2][1]);
+}
+
+Vec3 Mat3::getForwardAxis() const {
+	return Vec3(m[0][2], m[1][2], m[2][2]);
 }
 
 bool LMath::Mat3::inverse(Mat3& mat3) const {

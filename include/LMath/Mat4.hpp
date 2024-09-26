@@ -1,8 +1,6 @@
 #ifndef MATRIX_4_H
 #define MATRIX_4_H
 
-
-#include <iostream>
 #include "Vec4.hpp"
 #include "Vec3.hpp"
 #include "Mat3.hpp"

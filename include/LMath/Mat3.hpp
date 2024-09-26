@@ -2,6 +2,7 @@
 #define MATRIX_3_H
 
 #include <iostream>
+
 #include "Vec3.hpp"
 
 namespace LMath {
@@ -16,6 +17,7 @@ namespace LMath {
 			const float l2c1, const float l2c2, const float l2c3,
 			const float l3c1, const float l3c2, const float l3c3);
 		Mat3(const Mat3& other);
+		Mat3(const Vec3& forward, const Vec3& right, const Vec3& up);
 
 		static Mat3 ZERO;
 		static Mat3 IDENTITY;
@@ -50,6 +52,10 @@ namespace LMath {
 
 		float determinant() const;
 		Mat3 transpose() const;
+		struct Qtrn toQuaternion() const;
+		Vec3 getRightAxis() const;
+		Vec3 getUpAxis() const;
+		Vec3 getForwardAxis() const;
 		/*
 		* Returns false if this is not invertible else true;
 		* @param inverse will contain the inverse matrix of this

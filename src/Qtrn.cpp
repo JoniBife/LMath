@@ -170,9 +170,28 @@ Qtrn LMath::Qtrn::slerp(const Qtrn& q0, const Qtrn& q1, float k) {
 
 Qtrn LMath::Qtrn::fromDir(const Vec3& dir, const Vec3& ref) {
 
-	Vec3 axis = cross(dir, ref);
+	/*Vec3 axis = cross(dir, ref);
 	float t = 1 + dot(dir, ref);
 	Qtrn q(t, -axis.x, axis.y, -axis.z);
+	q = q.normalize();*/
+	Vec3 axis = cross(ref, dir);
+	float dotProduct = dot(ref, dir);
+	float halfAngle = acosf(dotProduct) * .5f;
+
+	// Handle special case where ref and dir are parallel
+	if (axis.magnitude() == 0.0f) {
+		// If ref and dir are parallel
+		if (dotProduct > 0.9999f) {
+			// Identity quaternion (no rotation)
+			return Qtrn(1, 0, 0, 0);
+		} else {
+			// 180-degree rotation around any axis perpendicular to ref (e.g., the X or Y axis)
+			// Assuming ref is normalized, if not, normalize it first
+			return Qtrn(0, 1, 0, 0);  // Example: 180-degree rotation around X-axis
+		}
+	}
+
+	Qtrn q(cos(halfAngle), axis.x*sin(halfAngle), axis.y*sin(halfAngle), axis.z*sin(halfAngle));
 	q = q.normalize();
 
 	return q;
