@@ -162,10 +162,40 @@ Qtrn LMath::Qtrn::lerp(const Qtrn& q0, const Qtrn& q1, float k) {
 }
 
 Qtrn LMath::Qtrn::slerp(const Qtrn& q0, const Qtrn& q1, float k) {
-	float angle = acosf(q0.x * q1.x + q0.y * q1.y + q0.z * q1.z + q0.t * q1.t);
-	float k0 = sinf((1.0f - k) * angle) / sinf(angle);
-	float k1 = sinf(k * angle) / sinf(angle);
-	return (q0 * k0 + q1 * k1).normalize();
+
+	// Difference at which to LERP instead of SLERP
+	constexpr float delta = 0.0001f;
+
+	// Calc cosine
+	float sign_scale1 = 1.0f;
+	float cos_omega = q1.quadrance();
+
+	// Adjust signs (if necessary)
+	if (cos_omega < 0.0f)
+	{
+		cos_omega = -cos_omega;
+		sign_scale1 = -1.0f;
+	}
+
+	// Calculate coefficients
+	float scale0, scale1;
+	if (1.0f - cos_omega > delta)
+	{
+		// Standard case (slerp)
+		const float omega = acosf(cos_omega);
+		const float sin_omega = asinf(omega);
+		scale0 = sinf((1.0f - k) * omega) / sin_omega;
+		scale1 = sign_scale1 * sinf(k * omega) / sin_omega;
+	}
+	else
+	{
+		// Quaternions are very close so we can do a linear interpolation
+		scale0 = 1.0f - k;
+		scale1 = sign_scale1 * k;
+	}
+
+	// Interpolate between the two quaternions
+	return Qtrn(q0*scale0 +q1*scale1).normalize();
 }
 
 Qtrn LMath::Qtrn::fromDir(const Vec3& dir, const Vec3& ref) {
