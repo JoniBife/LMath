@@ -35,7 +35,10 @@ namespace LMath {
 
     float radiansToDegrees(float angleRad);
 
-    float lerp(float a, float b, float f);
+    float lerp(float a, float b, float t);
+
+    /* cosine interpolation */
+    float clerp(float a, float b, float t);
 
     template <typename T> int sgn(T val) {
         return (T(0) < val) - (val < T(0));

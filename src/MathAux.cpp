@@ -38,7 +38,13 @@ float LMath::radiansToDegrees(float angleRad) {
     return (angleRad * 180.0f) / float(M_PI);
 }
 
-float LMath::lerp(float a, float b, float f)
+float LMath::lerp(float a, float b, float t)
 {
-    return a + f * (b - a);
+    return a + t * (b - a);
+}
+
+float LMath::clerp(float a, float b, float t)
+{
+    const float t2 = (1.f - cosf(t * PI)) / 2.f;
+    return lerp(a, b , t2);
 }
