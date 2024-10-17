@@ -17,7 +17,7 @@ float LMath::round6(float number) {
 
 float LMath::randomFloat() {
     float a = 5.0;
-    return (float(rand()) / float((RAND_MAX))) * a;
+    return (static_cast<float>(rand()) / static_cast<float>((RAND_MAX))) * a;
 }
 
 float LMath::randomFloat(float min, float max) {
@@ -31,11 +31,11 @@ float LMath::randomBinomial()
 }
 
 float LMath::degreesToRadians(float angle) {
-    return (angle * float(M_PI)) / 180.0f;
+    return (angle * static_cast<float>(M_PI)) / 180.0f;
 }
 
 float LMath::radiansToDegrees(float angleRad) {
-    return (angleRad * 180.0f) / float(M_PI);
+    return (angleRad * 180.0f) / static_cast<float>(M_PI);
 }
 
 float LMath::lerp(float a, float b, float t)
@@ -46,5 +46,11 @@ float LMath::lerp(float a, float b, float t)
 float LMath::clerp(float a, float b, float t)
 {
     const float t2 = (1.f - cosf(t * PI)) / 2.f;
+    return lerp(a, b , t2);
+}
+
+float LMath::smoothsteplerp(float a, float b, float t)
+{
+    const float t2 = t * t * (3.f - 2.f * t);
     return lerp(a, b , t2);
 }

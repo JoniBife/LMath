@@ -40,6 +40,8 @@ namespace LMath {
     /* cosine interpolation */
     float clerp(float a, float b, float t);
 
+    float smoothsteplerp(float a, float b, float t);
+
     template <typename T> int sgn(T val) {
         return (T(0) < val) - (val < T(0));
     }
